@@ -1,4 +1,3 @@
-
 /*
 Finish the application for money exchange.
  
@@ -14,22 +13,21 @@ For simplicity the exchange rate is constant:
 
 Note. You can use Google if you need it.
 */
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 export default function App() {
-  const usdRef = useRef();
-  const euroRef = useRef();
   const [usdValue, setUsdEx] = useState("");
   const [euroValue, setEuroEx] = useState("");
 
-  const onUSDChange = () => {
-    const usdEntered = usdRef.current.value;
+  const onUSDChange = (event) => {
+    const usdEntered = event.target.value;
+    // console.log(usdEntered);
     setUsdEx(usdEntered);
     const euroEx = usdEntered * 0.87;
     setEuroEx(euroEx);
   };
-  const onEuroChange = () => {
-    const euroEntered = euroRef.current.value;
+  const onEuroChange = (event) => {
+    const euroEntered = event.target.value;
     setEuroEx(euroEntered);
     const usdEx = euroEntered / 0.87;
     setUsdEx(usdEx);
@@ -41,7 +39,6 @@ export default function App() {
         <legend>Enter money in USD:</legend>
         <input
           onChange={onUSDChange}
-          ref={usdRef}
           value={Boolean(usdValue) ? usdValue : ""}
           type="text"
         />
@@ -51,7 +48,6 @@ export default function App() {
         <input
           type="text"
           onChange={onEuroChange}
-          ref={euroRef}
           value={Boolean(euroValue) ? euroValue : ""}
         />
       </fieldset>
