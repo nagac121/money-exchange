@@ -25,7 +25,7 @@ export default function App() {
     setUsdEx(usdEx);
   };
   return (
-    <div>
+    <div className="main">
       <h3>Exchange money:</h3>
       <fieldset>
         <legend>Enter money in USD:</legend>

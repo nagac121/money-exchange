@@ -4,6 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Run application
 ```
+npm i
 npm start
 ```
 
